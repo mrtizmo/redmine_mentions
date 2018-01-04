@@ -1,0 +1,22 @@
+<div class="contextual">
+<% if User.current.allowed_to?(:edit_wiki_pages, @project) %>
+<%= link_to l(:label_wiki_page_new), new_project_wiki_page_path(@project), :remote => true, :class => 'icon icon-add' %>
+<% end %>
+</div>
+
+<h2><%= l(:label_tagged_with, tag: params[:id]) %></h2>
+
+<ul class='pages-hierarchy'>
+  <% @pages.each do |page| %>
+    <%= link_to page.page.title, project_wiki_page_path(@project, page) %>
+  <% end %>
+</ul>
+<% content_for :sidebar do %>
+  <%= render :partial => 'wiki/sidebar' %>
+<% end %>
+
+<% content_for :header_tags do %>
+<%= auto_discovery_link_tag(:atom, :controller => 'activities', :action => 'index', :id => @project, :show_wiki_edits => 1, :format => 'atom', :key => User.current.rss_key) %>
+<% end %>
+
+

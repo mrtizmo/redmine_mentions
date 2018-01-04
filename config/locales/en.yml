@@ -1,0 +1,6 @@
+en:
+  label_user_mail_no_mention_notified: "I don't want to be notifed when mentioned"
+  label_mentions_include_body: 'Include body of the note into mention notification email'
+  field_tags: "Tags/categories"
+  label_index_by_tags: "Index by tags"
+  label_tagged_with: "Pages tagged with %{tag}"
