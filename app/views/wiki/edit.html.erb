@@ -34,7 +34,7 @@
 
 <p style='min-height: 3rem'>
   <label><%= l(:field_tags) %></label>
-  <%= f.select :tags, f.object.tags.select { |x| x.present? }, {}, multiple: true, style: 'width: 95%' %>
+  <%= f.select :tags, WikiContent.pluck(:tags).compact.flatten.uniq.select { |x| x.present? }, {}, multiple: true, style: 'width: 95%' %>
 </p>
 </div>
 
