@@ -35,12 +35,15 @@
 }
 
 .wiki-tags {
-  min-height: 3rem;
+  background-color: #eee;
+  line-height: 2rem;
+  min-height: 2rem;
 }
 
 .wiki-tag {
   border: solid 1px black;
   border-radius: .2rem;
-  padding: .5rem;
-  margin: .5rem;
+  font-size: 12px;
+  padding: .2rem;
+  margin: .2rem;
 }
