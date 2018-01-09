@@ -33,3 +33,14 @@
   background-color: #a3bcea;
   filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }
+
+.wiki-tags {
+  min-height: 3rem;
+}
+
+.wiki-tag {
+  border: solid 1px black;
+  border-radius: .2rem;
+  padding: .5rem;
+  margin: .5rem;
+}

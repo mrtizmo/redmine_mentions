@@ -1,0 +1,10 @@
+<div class="wiki wiki-page">
+  <%= textilizable content, :text, :attachments => content.page.attachments,
+        :edit_section_links => (@sections_editable && {:controller => 'wiki', :action => 'edit', :project_id => @page.project, :id => @page.title}) %>
+  <div class='wiki-tags'>
+    <% content.tags.select{ |x| x.present? }.each do |tag| %>
+      <%= link_to tag, wiki_tag_path(tag, project_id: @project), class: 'wiki-tag' %>
+    <% end %>
+  </div>
+</div>
+

@@ -16,12 +16,13 @@ module RedmineMentions
         end
 
         def mentioned_users
-          notes.scan(
+          users = notes.scan(
             /@\[([^\]]*)\]\(([^)^:]*):(\d*)\)/
           ).map do |_, klass, id|
             users(klass, id)
-          end.flatten.compact.select do |user|
-            !user.preference.no_mention_notified
+          end.flatten.compact
+          users.reject do |user|
+            user.preference.no_mention_notified
           end
         end
 
