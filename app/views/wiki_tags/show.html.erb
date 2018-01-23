@@ -9,6 +9,7 @@
 <ul class='pages-hierarchy'>
   <% @pages.each do |page| %>
     <%= link_to page.page.title, project_wiki_page_path(@project, page.page.title) %>
+    <br />
   <% end %>
 </ul>
 <% content_for :sidebar do %>
