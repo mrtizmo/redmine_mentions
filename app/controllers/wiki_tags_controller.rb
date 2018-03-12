@@ -2,7 +2,7 @@ class WikiTagsController < ApplicationController
   before_filter :find_project
 
   def index
-    @tags = WikiContent.pluck(:tags).flatten.uniq.select { |x| x.present? }
+    @tags = WikiContent.for_project(@project)
   end
 
   def show
