@@ -6,8 +6,10 @@ class WikiTagsController < ApplicationController
   end
 
   def show
-    @pages = WikiContent.for_project(
-      @project
+    @pages = WikiContent.joins(page: :wiki).where(
+      wikis: {
+        project_id: @project.id
+      }
     ).where(
       [
         '? = ANY (tags)',
