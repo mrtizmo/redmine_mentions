@@ -6,7 +6,14 @@ class WikiTagsController < ApplicationController
   end
 
   def show
-    @pages = WikiContent.where(['? = ANY (tags)', params[:id]])
+    @pages = WikiContent.for_project(
+      @project
+    ).where(
+      [
+        '? = ANY (tags)',
+        params[:id]
+      ]
+    )
   end
 
   private
