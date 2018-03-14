@@ -15,7 +15,7 @@ class WikiTagsController < ApplicationController
         '? = ANY (tags)',
         params[:id]
       ]
-    )
+    ).order('wiki_pages.title')
   end
 
   private
