@@ -12,8 +12,9 @@ class WikiTagsController < ApplicationController
       }
     ).where(
       [
-        '? = ANY (tags)',
-        params[:id]
+        '? = ANY (tags) OR text ILIKE ?',
+        params[:id],
+        "%category:\"#{params[:id]}\"%"
       ]
     ).order('wiki_pages.title')
   end
