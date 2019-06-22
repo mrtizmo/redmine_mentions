@@ -8,6 +8,7 @@ module RedmineMentions
           end
 
           def update
+            @page = @wiki.find_or_new_page(params[:id])
             return render_403 unless editable?
             was_new_page = @page.new_record?
             @page.safe_attributes = params[:wiki_page]
