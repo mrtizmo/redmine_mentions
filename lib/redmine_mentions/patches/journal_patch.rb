@@ -22,7 +22,7 @@ module RedmineMentions
             users(klass, id)
           end.flatten.compact
           users.reject do |user|
-            user.preference.no_mention_notified
+            user.preference&.no_mention_notified
           end
         end
 
